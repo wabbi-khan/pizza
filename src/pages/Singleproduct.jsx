@@ -7,7 +7,7 @@ const Singleproduct = ({ pizzaName, pizzaSize, images, price }) => {
   return (
     <div className="container mx-auto mt-12 ">
       <button
-        className="mb-12 font-bold ml-20"
+        className="mb-12 py-1 px-8 rounded-full font-bold ml-20 bg-yellow-500"
         onClick={() => {
           history("/");
         }}
