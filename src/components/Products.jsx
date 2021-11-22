@@ -8,8 +8,6 @@ const Products = () => {
         <Product />
         <Product />
         <Product />
-        <Product />
-        <Product />
       </div>
     </div>
   );
