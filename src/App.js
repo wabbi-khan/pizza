@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 // import About from "./pages/About";
 import Navbar from "./components/Navbar";
-import Products from "./pages/Products";
+import ProductsPage from "./pages/ProductsPage";
 import Cart from "./pages/Cart";
 import Singleproduct from "./pages/Singleproduct";
 // import Chicken from "./pages/Chicken";
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<ProductsPage />} />
           {/* <Route path="/products/asd" element={<Chicken />} /> */}
           <Route
             path="/products/chicken"
