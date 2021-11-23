@@ -9,7 +9,7 @@ const Singleproduct = ({ pizzaName, pizzaSize, images, price }) => {
       <button
         className="mb-12 py-1 px-8 rounded-full font-bold ml-20 bg-yellow-500"
         onClick={() => {
-          history("/");
+          history(-1);
         }}
       >
         Back

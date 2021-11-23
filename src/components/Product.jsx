@@ -1,9 +1,26 @@
-import React from "react";
-// import { Link } from "react-router-dom";
-
+import { React, useContext } from "react";
+import { CartContext } from "../CartContex";
 const Product = ({ pizzaName, pizzaSize, images, price }) => {
+  const { cart, setCart } = useContext(CartContext);
+  const addToCart = (e) => {
+    e.preventDefault();
+
+    let _cart = { ...cart };
+    if (!_cart.items) {
+      _cart.items = {};
+    }
+    if (_cart.items[pizzaName]) {
+      _cart.items[pizzaName] += 1;
+    } else {
+      _cart.items[pizzaName] = 1;
+    }
+    if (!_cart.totalItems) {
+      _cart.totalItems = 0;
+    }
+    _cart.totalItems += 1;
+    setCart(_cart);
+  };
   return (
-    // <Link to="/products/category">
     <div>
       <img src={images} alt="pizza" />
       {/* <img src="/images/peproni.png" alt="pizza" /> */}
@@ -15,7 +32,12 @@ const Product = ({ pizzaName, pizzaSize, images, price }) => {
       </div>
       <div className=" flex justify-between items-center mt-4">
         <span>Rs. {price}</span>
-        <button className="bg-yellow-500 py-1 px-4 rounded-full font-bold">
+        <button
+          onClick={(e) => {
+            addToCart(e, Product);
+          }}
+          className="bg-yellow-500 py-1 px-4 rounded-full font-bold"
+        >
           ADD
         </button>
       </div>

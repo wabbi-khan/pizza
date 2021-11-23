@@ -1,7 +1,10 @@
-import { React } from "react";
+// import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import Product from "./Product";
+// import { CartContext } from "../CartContex";
 const Products = () => {
+  // const { name } = useContext(CartContext);
+
   // const [products, setProducts] = useState([]);
   // useEffect(() => {
   //   fetch(Data)
