@@ -9,11 +9,12 @@ import { CartContext } from "./CartContex";
 import { useEffect, useState } from "react";
 function App() {
   const [cart, setCart] = useState({});
-  {
-    /* fetching cart from local storage */
-  }
+
+  /* fetching cart from local storage */
+
   useEffect(() => {
     const cart = window.localStorage.getItem("cart");
+    setCart(JSON.parse(cart));
   }, []);
 
   useEffect(() => {

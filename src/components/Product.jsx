@@ -1,6 +1,7 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import { CartContext } from "../CartContex";
 const Product = ({ pizzaName, pizzaSize, images, price }) => {
+  const [isAdding, setIsAdding] = useState(false);
   const { cart, setCart } = useContext(CartContext);
   const addToCart = (e) => {
     e.preventDefault();
@@ -19,6 +20,10 @@ const Product = ({ pizzaName, pizzaSize, images, price }) => {
     }
     _cart.totalItems += 1;
     setCart(_cart);
+    setIsAdding(true);
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 1000);
   };
   return (
     <div>
@@ -33,12 +38,15 @@ const Product = ({ pizzaName, pizzaSize, images, price }) => {
       <div className=" flex justify-between items-center mt-4">
         <span>Rs. {price}</span>
         <button
+          disabled={isAdding}
           onClick={(e) => {
             addToCart(e, Product);
           }}
-          className="bg-yellow-500 py-1 px-4 rounded-full font-bold"
+          className={`${
+            isAdding ? "bg-green-500" : "bg-yellow-500"
+          }  py-1 px-4 rounded-full font-bold`}
         >
-          ADD
+          ADD{isAdding ? "ED" : ""}
         </button>
       </div>
     </div>
