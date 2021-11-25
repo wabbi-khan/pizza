@@ -93,6 +93,10 @@ import { React } from "react";
 import { useCart } from "react-use-cart";
 
 const Cart = () => {
+  const mystyle = {
+    fontSize: 40,
+    fontWeight: 600,
+  };
   const {
     isEmpty,
     totalUniqueItems,
@@ -103,28 +107,31 @@ const Cart = () => {
     removeItem,
     emptyCart,
   } = useCart();
-  if (isEmpty) return <h1 className="text-center">cart is empty</h1>;
+  if (isEmpty)
+    return (
+      <h1 style={mystyle} className="text-center">
+        cart is empty
+      </h1>
+    );
   return (
     <section className="container mx-auto lg:w-1/2 w-full pb-24">
       <div className="row justify-content-center">
         <div className="col-12">
-          <h1>
-            <b>
-              Cart ({totalUniqueItems}) total Items: ({totalItems})
-            </b>
+          <h1 style={{ fontSize: 20, fontWeight: 500 }}>
+            Cart ({totalUniqueItems}) total Items: ({totalItems})
           </h1>
           <table className="table table-light table-hover mt-6">
             {items.map((item, index) => {
               return (
                 <tr key={index}>
                   <td className="w-1/5">
-                    <img src={item.img} alt="" className="h-20 mb-10" />
+                    <img src={item.img} alt="" className="h-22 w-22 mb-10" />
                   </td>
-                  <th className="w-1/5 pb-10">{item.title}</th>
+                  <th className="w-1/5 pb-10 px-4">{item.title}</th>
                   <th className="w-1/5 pb-10">{item.size}</th>
                   <th className="w-1/5 pb-10">{item.price}</th>
                   <th className="w-1/5 pb-10">Quantity: ({item.quantity}) </th>
-                  <th className="w-1/2 pb-10  flex">
+                  <th className="w-1/2 pb-10  flex text-center">
                     <button
                       onClick={() =>
                         updateItemQuantity(item.id, item.quantity - 1)
@@ -143,7 +150,7 @@ const Cart = () => {
                     </button>
                     <button
                       onClick={() => removeItem(item.id)}
-                      className=" bg-yellow-500 px-4  ml-2 py-2 rounded"
+                      className=" bg-red-500 px-4  ml-2 py-2 rounded"
                     >
                       Delete
                     </button>
@@ -153,18 +160,25 @@ const Cart = () => {
             })}
           </table>
         </div>
-        <div className="flex justify-between text-center">
+        <div className="flex justify-between">
           <div style={{ marginLeft: 400 }}>
             <b> Total Price: Rs. {cartTotal}</b>
-          </div>
-          <div>
+
             <button
               onClick={() => emptyCart()}
-              className="bg-yellow-500 py-1 px-2 rounded"
+              className="bg-yellow-500 py-1 px-2 ml-4 rounded"
             >
               Clear Cart
             </button>
           </div>
+        </div>
+        <div>
+          <button
+            style={{ marginLeft: 450, marginTop: 20 }}
+            className="bg-green-500 py-2 px-14 rounded"
+          >
+            Pay Now
+          </button>
         </div>
       </div>
     </section>
