@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+// import data from "../data.json";
 const Singleproduct = ({ pizzaName, pizzaSize, images, price }) => {
   // back button code
   const history = useNavigate();
@@ -14,6 +15,7 @@ const Singleproduct = ({ pizzaName, pizzaSize, images, price }) => {
       >
         Back
       </button>
+
       <div className="flex ml-20">
         <img src={images} alt="pizza" />
         <div className="ml-16">

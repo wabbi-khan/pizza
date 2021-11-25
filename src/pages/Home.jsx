@@ -1,5 +1,6 @@
 import React from "react";
 import Products from "../components/Products";
+import pizza from "../images/pizza.png";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
             </button>
           </div>
           <div className="w-1/2">
-            <img className="w-3/5" src="/images/pizza.png" alt="pizza" />
+            <img className="w-3/5" src={pizza} alt="pizza" />
           </div>
         </div>
       </div>
